@@ -1,3 +1,16 @@
+<?php
+$second=0;
+$minute=0;
+$hour=0;
+
+if (isset($_GET['second'] ))  {
+    $second=$_GET['second'];
+    $minute= number_format($second/60,2);
+    $hour= number_format($second/3600,2);
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,17 +32,17 @@
                             <div class="panel-body">
                                 <div class="form-group">
                                     <label for="">Ingresar Segundos:</label>
-                                    <input type="number" class="form-control" name="number">
+                                    <input type="number" class="form-control" name="second" value=<?= $second ?>>
                                 </div>
-                                <button class="btn btn-primary pull-right">Enviar</button>
+                                <button type="submit" value="calcular" class="btn btn-primary pull-right">Enviar</button>
                             </div>
                       </div>
                   </form>
 
                   <div class="alert alert-success">
-                         <p>Horas: "0"</p>
-                         <p>Minutos: "0"</p>
-                         <p>Segundos: "0"</p>
+                         <p>Horas: "<?= $hour ?>"</p>
+                         <p>Minutos: "<?= $minute ?>"</p>
+                         <p>Segundos: "<?= $second ?>" </p>
                   </div>
                   <p class="text-center"><a href="../index.php">Ir al inicio</a></p>
               </div>
